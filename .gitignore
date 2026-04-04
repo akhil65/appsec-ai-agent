@@ -1,0 +1,13 @@
+venv/
+.env
+.env.local
+.vscode/
+**/__pycache__/
+**/.pytest_cache/
+*.pyc
+.DS_Store
+src/patterns/.cache/
+src/patterns/.vectordb.json
+src/services/.vectordb.json
+test_repos/
+.patterns_cache.json
