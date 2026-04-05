@@ -30,3 +30,12 @@ class RemediationResult(BaseModel):
     execution_time_seconds: float
     created_at: datetime
     error_message: Optional[str] = None
+
+    policy_applied: Optional[str] = None        # Policy filename
+    policy_version: Optional[str] = None        # Policy version (e.g., "2.1")
+    policy_tier: Optional[int] = None           # Tier 1, 2, or 3
+    approval_required: str = "developer"        # developer, code_review, architecture_review
+    ai_model_used: str = "claude-sonnet-4.6"   # Which Claude model
+    ai_confidence_score: float = 0.0            # 0.0-1.0
+    governance_tags: List[str] = []             # Tags for audit trail
+    evidence: Optional[Dict[str, Any]] = None   # Evidence dict

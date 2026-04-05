@@ -24,3 +24,16 @@ class Finding(BaseModel):
     description: str
     repo_name: str
     found_at: datetime
+    policy_applied: Optional[str] = None  # Name of policy applied
+    policy_tier: Optional[int] = None     # Tier 1, 2, or 3
+    institutional_requirement: Optional[str] = None  # Org requirement
+
+class Config:
+    json_schema_extra = {
+        "example": {
+            # ... existing example fields ...
+            "policy_applied": "cwe_89_sqli.md",
+            "policy_tier": 1,
+            "institutional_requirement": "All SQL must use parameterized queries"
+        }
+    }
