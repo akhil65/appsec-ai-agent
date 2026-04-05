@@ -1,5 +1,5 @@
 from pydantic import BaseModel
-from typing import Optional
+from typing import Optional, List, Dict, Any
 from datetime import datetime
 from enum import Enum
 
@@ -23,10 +23,26 @@ class Finding(BaseModel):
     title: str
     description: str
     repo_name: str
+    branch: str = "main"
     found_at: datetime
+
+    # Governance & Policy Fields
     policy_applied: Optional[str] = None  # Name of policy applied
     policy_tier: Optional[int] = None     # Tier 1, 2, or 3
     institutional_requirement: Optional[str] = None  # Org requirement
+
+    # Evidence & Audit Fields
+    remediation_id: Optional[str] = None
+    confidence_score: Optional[float] = None
+    tests_passed: Optional[bool] = None
+    sast_passed: Optional[bool] = None
+    approval_chain: List[str] = []
+    approval_status: Optional[str] = None  # pending, approved, rejected
+    approved_by: Optional[str] = None
+    approval_timestamp: Optional[datetime] = None
+
+    # Governance Tags
+    governance_tags: List[str] = []
 
 class Config:
     json_schema_extra = {

@@ -1,0 +1,39 @@
+# Repo-specific Guardrails for this Codebase
+
+# Disabled CWEs (don't auto-fix these in this repo)
+disabled_cwes: []
+
+# Tier overrides (e.g., always require review for certain CWEs)
+tier_overrides:
+  # Example: Always require review for SQL injection in this repo
+  # 89: 2  # Force CWE-89 to Tier 2 (requires review)
+
+# Language-specific restrictions
+allowed_languages:
+  - python
+  - javascript
+  - java
+
+# Framework-specific restrictions
+allowed_frameworks:
+  - django
+  - express
+  - spring
+
+# Custom testing requirements
+testing_requirements:
+  min_test_coverage: 80
+  require_integration_tests: true
+  require_load_testing: false
+
+# Custom approval chains
+custom_approval_chains:
+  # Example: Specific CWEs need extra approval
+  # "89":  # CWE-89 (SQL Injection)
+  #   - "developer"
+  #   - "security-team"
+
+# Custom tagging for this repo
+repo_tags:
+  - "production-critical"
+  - "pci-compliance"
